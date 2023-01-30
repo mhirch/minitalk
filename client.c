@@ -6,7 +6,7 @@
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:59:45 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/28 19:27:26 by mhirch           ###   ########.fr       */
+/*   Updated: 2023/01/30 17:32:03 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void char_to_binary(int pid,char c)
 void say_done(int i)
 {
     if (i == SIGUSR1)
-        printf("hello");
+        write(1, "\033[0;34mmessage received by the server\n\033[0m", 38);
 }
 
 int main(int ac, char **av)
@@ -43,9 +43,15 @@ int main(int ac, char **av)
     if (ac == 3)
     {
         pid = ft_atoi(av[1]);
-        while(ft_strlen(av[2]) > i)
-            char_to_binary(pid,av[2][i++]);
+        if(pid <= 0)
+        {
+            write(1, "\033[0;31mError:\033[0m pid is incorrect\n", 36);
+            return 1; 
+        }
         signal(SIGUSR1, say_done);
+        while(ft_strlen(av[2]) >= i)
+            char_to_binary(pid,av[2][i++]);
     }
+    else
+        write(1, "\033[0;31mError:\033[0m too many or few arguments\n", 45);
 }
-

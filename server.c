@@ -6,7 +6,7 @@
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 09:58:09 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/28 19:24:31 by mhirch           ###   ########.fr       */
+/*   Updated: 2023/01/30 17:31:26 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,15 @@ void signal_handler(int sig, siginfo_t *info, void *data)
         received_char = received_char << 1;
     }
     bit_counter++;
+	
     while (bit_counter == 8)
     {
-		// if (!received_char)
-		// {
-		// 	kill(pid_client, SIGUSR1);
-		// 	pid_client = 0;
-		// 	return ;
-		// }
+		if (!received_char )
+		{
+			kill(pid_client, SIGUSR1);
+			pid_client = 0;
+			return ;
+		}
 		write(1, &received_char, 1);
         bit_counter = 0;
         received_char = 0;
@@ -63,7 +64,6 @@ int	main(int ac, char **av)
 		sigaction(SIGUSR2, &sa, 0);
 		while (1)
 			pause();
-		
 	}
 	else
 		ft_putstr("Error\n");
