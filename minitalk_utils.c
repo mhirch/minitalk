@@ -6,7 +6,7 @@
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 10:26:50 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/27 16:54:44 by mhirch           ###   ########.fr       */
+/*   Updated: 2023/01/30 18:36:02 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int	ft_atoi(const char *str)
 	}
 	return (r * sign);
 }
+
 size_t	ft_strlen(char *s)
 {
 	size_t	i;

@@ -6,7 +6,7 @@
 #    By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 10:00:18 by mhirch            #+#    #+#              #
-#    Updated: 2023/01/28 15:05:32 by mhirch           ###   ########.fr        #
+#    Updated: 2023/01/30 19:47:07 by mhirch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ HEADER = minitalk.h
 
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES =	minitalk_utils.c
+SOURCES = minitalk_utils.c
 
 OBJECTS = $(SOURCES:.c=.o) 
 
