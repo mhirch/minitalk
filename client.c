@@ -6,13 +6,13 @@
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:59:45 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/30 19:46:35 by mhirch           ###   ########.fr       */
+/*   Updated: 2023/01/30 19:52:46 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	char_to_binary(int pid, char c)
+static	void	char_to_binary(int pid, char c)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ void	char_to_binary(int pid, char c)
 	}
 }
 
-void	say_done(int i)
+static	void	say_done(int i)
 {
 	if (i == SIGUSR1)
 		write(1, "\033[0;34mmessage received by the server\n\033[0m", 38);
