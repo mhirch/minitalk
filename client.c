@@ -6,7 +6,7 @@
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:59:45 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/31 14:55:02 by mhirch           ###   ########.fr       */
+/*   Updated: 2023/01/31 15:03:37 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	void	char_to_binary(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(250);
+		usleep(300);
 		i--;
 	}
 }

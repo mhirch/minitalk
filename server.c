@@ -6,14 +6,13 @@
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 09:58:09 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/31 14:56:50 by mhirch           ###   ########.fr       */
+/*   Updated: 2023/01/31 14:59:09 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static	void	process_bits(int *bit_counter, \
-	char *received_char, pid_t *pid_client)
+static	void	process_bits(int *bit_counter, char *received_char)
 {
 	if (*bit_counter == 8)
 	{
@@ -41,7 +40,7 @@ static	void	signal_handler(int sig, siginfo_t *info, void *data)
 	else if (sig == SIGUSR2)
 		received_char = received_char << 1;
 	bit_counter++;
-	process_bits(&bit_counter, &received_char, &pid_client);
+	process_bits(&bit_counter, &received_char);
 }
 
 int	main(int ac, char **av)
