@@ -6,10 +6,9 @@
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 14:53:46 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/31 14:54:03 by mhirch           ###   ########.fr       */
+/*   Updated: 2023/01/31 15:36:36 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef MINITALK_BONUS_H
 # define MINITALK_BONUS_H
