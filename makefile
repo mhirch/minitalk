@@ -6,7 +6,7 @@
 #    By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 10:00:18 by mhirch            #+#    #+#              #
-#    Updated: 2023/01/30 19:47:07 by mhirch           ###   ########.fr        #
+#    Updated: 2023/01/31 14:50:49 by mhirch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ all:$(SERVER_NAME) $(CLIENT_NAME)
 
 $(SERVER_NAME) : server.c $(HEADER)
 	 		$(CC) $(CFLAGS) server.c $(SOURCES) -o server
+
 $(CLIENT_NAME) : client.c $(HEADER)
 			$(CC) $(CFLAGS) client.c $(SOURCES) -o client
 clean:
@@ -39,3 +40,5 @@ fclean: clean
 	rm -rf $(SERVER_NAME) $(CLIENT_NAME)
 
 re: fclean all
+
+bonus: 

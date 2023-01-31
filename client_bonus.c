@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 15:59:45 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/31 14:55:02 by mhirch           ###   ########.fr       */
+/*   Created: 2023/01/31 14:52:16 by mhirch            #+#    #+#             */
+/*   Updated: 2023/01/31 14:52:40 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 static	void	char_to_binary(int pid, char c)
 {
@@ -28,6 +28,12 @@ static	void	char_to_binary(int pid, char c)
 	}
 }
 
+static	void	say_done(int i)
+{
+	if (i == SIGUSR1)
+		write(1, "\033[0;34mmessage received by the server\n\033[0m", 38);
+}
+
 int	main(int ac, char **av)
 {
 	int		pid;
@@ -42,6 +48,7 @@ int	main(int ac, char **av)
 			write(1, "\033[0;31mError:\033[0m pid is incorrect\n", 36);
 			return (1);
 		}
+		signal(SIGUSR1, say_done);
 		while (ft_strlen(av[2]) >= i)
 			char_to_binary(pid, av[2][i++]);
 	}

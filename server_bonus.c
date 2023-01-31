@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 09:58:09 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/31 14:56:50 by mhirch           ###   ########.fr       */
+/*   Created: 2023/01/31 14:53:01 by mhirch            #+#    #+#             */
+/*   Updated: 2023/01/31 14:53:08 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 static	void	process_bits(int *bit_counter, \
 	char *received_char, pid_t *pid_client)
 {
 	if (*bit_counter == 8)
 	{
+		if (!*received_char)
+		{
+			kill(*pid_client, SIGUSR1);
+			*pid_client = 0;
+			return ;
+		}
 		write(1, received_char, 1);
 		*bit_counter = 0;
 		*received_char = 0;
