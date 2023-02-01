@@ -6,7 +6,7 @@
 /*   By: mhirch <mhirch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 14:53:01 by mhirch            #+#    #+#             */
-/*   Updated: 2023/01/31 14:53:08 by mhirch           ###   ########.fr       */
+/*   Updated: 2023/02/01 16:02:06 by mhirch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static	void	process_bits(int *bit_counter, \
 
 static	void	signal_handler(int sig, siginfo_t *info, void *data)
 {
-	static int		bit_counter = 0;
-	static char		received_char = 0;
-	static pid_t	pid_client = 0;
+	static int		bit_counter;
+	static char		received_char;
+	static pid_t	pid_client;
 
 	(void)data;
 	if (pid_client != info->si_pid)
